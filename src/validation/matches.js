@@ -1,7 +1,5 @@
 import { z } from 'zod';
 
-const isValidIsoDateString = (value) => !Number.isNaN(Date.parse(value));
-
 export const MATCH_STATUS = {
   SCHEDULED: 'scheduled',
   LIVE: 'live',
@@ -21,11 +19,11 @@ export const createMatchSchema = z
     sport: z.string().trim().min(1),
     homeTeam: z.string().trim().min(1),
     awayTeam: z.string().trim().min(1),
-    startTime: z.string().refine(isValidIsoDateString, {
-      message: 'startTime must be a valid ISO date string',
+    startTime: z.iso.datetime({
+      error: 'startTime must be a valid ISO date string',
     }),
-    endTime: z.string().refine(isValidIsoDateString, {
-      message: 'endTime must be a valid ISO date string',
+    endTime: z.iso.datetime({
+      error: 'endTime must be a valid ISO date string',
     }),
     homeScore: z.coerce.number().int().nonnegative().optional(),
     awayScore: z.coerce.number().int().nonnegative().optional(),
