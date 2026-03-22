@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 	res.send('Server is running');
 });
 
+// Apply security middleware to all routes
 app.use(securityMiddleware());
 
 app.use('/api/matches', matchesRouter);
