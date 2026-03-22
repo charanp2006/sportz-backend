@@ -61,7 +61,6 @@ matchesRouter.post("/", async (req, res) => {
                 res.app.locals.broadcastMatchCreated(event);
             } catch (error) {
                 console.error('Failed to broadcast match creation:', error);
-                
             }
         }
 
