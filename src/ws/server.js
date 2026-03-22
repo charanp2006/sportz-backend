@@ -121,7 +121,7 @@ export function attachWebSocketServer(server) {
 
         socket.on('message', (data) => handlemessage(socket, data));
 
-        socket.on('error', () => {
+        socket.on('error', (error) => {
             console.error('WebSocket error:', error);
             socket.terminate();
         });
