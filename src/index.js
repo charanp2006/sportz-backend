@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 	res.send('Server is running');
 });
 
-// app.use(securityMiddleware());
+app.use(securityMiddleware());
 
 app.use('/api/matches', matchesRouter);
 app.use('/api/matches/:id/commentary', commentaryRouter);
