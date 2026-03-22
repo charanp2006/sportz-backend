@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# APM Insight logs
+# APM Insight logs and data
 apminsightnode.log
 apminsights.log
 apminsights/
