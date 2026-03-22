@@ -1,3 +1,6 @@
+import AgentAPI from 'apminsight';
+AgentAPI.config();
+
 import express from 'express';
 import http from 'http';
 import { matchesRouter } from './routes/matches.js';
@@ -17,7 +20,7 @@ app.get('/', (req, res) => {
 	res.send('Server is running');
 });
 
-app.use(securityMiddleware());
+// app.use(securityMiddleware());
 
 app.use('/api/matches', matchesRouter);
 app.use('/api/matches/:id/commentary', commentaryRouter);

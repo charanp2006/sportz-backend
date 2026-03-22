@@ -5,13 +5,13 @@ export const listCommentaryQuerySchema = z.object({
 });
 
 export const createCommentarySchema = z.object({
-  minute: z.coerce.number().int().nonnegative(),
-  sequence: z.coerce.number().int().nonnegative(),
-  period: z.string(),
-  eventType: z.string(),
-  actor: z.string(),
-  team: z.string(),
+  minute: z.coerce.number().int().nonnegative().default(0),
+  sequence: z.coerce.number().int().nonnegative().default(0),
+  period: z.string().trim().min(1).optional(),
+  eventType: z.string().trim().min(1),
+  actor: z.string().trim().min(1).optional(),
+  team: z.string().trim().min(1).optional(),
   message: z.string().trim().min(1),
-  metadata: z.record(z.string(), z.unknown()),
-  tags: z.array(z.string()),
+  metadata: z.record(z.string(), z.unknown()).optional(),
+  tags: z.array(z.string()).optional(),
 });
